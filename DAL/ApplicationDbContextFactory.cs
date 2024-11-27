@@ -7,8 +7,15 @@ namespace DAL
     {
         public ApplicationDbContext CreateDbContext(string[] args)
         {
-            var dbPath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "StoreDatabase.db");
-            
+            var basePath = Directory.GetCurrentDirectory();
+            var dataPath = Path.Combine(basePath, "Data");
+            var dbPath = Path.Combine(dataPath, "StoreDatabase.db");
+
+            if (!Directory.Exists(dataPath))
+            {
+                Directory.CreateDirectory(dataPath);
+            }
+
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
             optionsBuilder.UseSqlite($"Data Source={dbPath}");
             
