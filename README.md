@@ -12,6 +12,11 @@
 git clone https://github.com/Readiee/StoreWebApiOopLab3.git
 ```
 
+Перейдите в директорию:
+```sh
+cd StoreWebApiOopLab3
+```
+
 Установите зависимости:
 ```sh
 dotnet restore
